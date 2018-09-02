@@ -13,13 +13,17 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import a2gazb.hatenarssreader.R;
+import a2gazb.hatenarssreader.WebViewActivity;
 import a2gazb.hatenarssreader.m_DataObject.Article;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
@@ -54,6 +58,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
         Article article = articles.get(position);
 
+        if(position == 0) {
+            holder.topTag.setVisibility(View.VISIBLE);
+        }
+
         holder.titleTxt.setText(article.getTitle());
         holder.descTxt.setText(article.getDescription());
         holder.dateTxt.setText(article.getDate());
@@ -73,8 +81,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 //                myWebView.setWebViewClient(new WebViewClient());
 //                myWebView.loadUrl(article.getLink());
 
-                Uri uri = Uri.parse(article.getLink());
-                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+//                Uri uri = Uri.parse(article.getLink());
+//                Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+//                c.startActivity(WebViewActivity);
+
+                Intent intent = new Intent(c, WebViewActivity.class);
+//                EditText editText = (EditText) findViewById(R.id.editText);
+//                String message = editText.getText().toString();
+                intent.putExtra("ARTICLE_URL",article.getLink());
                 c.startActivity(intent);
 
 //

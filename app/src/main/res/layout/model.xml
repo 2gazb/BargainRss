@@ -24,6 +24,20 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Top記事"
+            android:id="@+id/topTag"
+            android:padding="10dp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_alignParentLeft="true"
+            />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +50,6 @@
             android:textSize="16dp"
             android:layout_alignParentLeft="true"
             />
-
 
             <TextView
                 android:layout_width="wrap_content"
