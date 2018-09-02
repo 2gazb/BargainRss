@@ -4,21 +4,15 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
-
-import a2gazb.hatenarssreader.MainActivity;
 import a2gazb.hatenarssreader.m_DataObject.Article;
 import a2gazb.hatenarssreader.m_UI.MyAdapter;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -37,6 +31,7 @@ public class RSSParser extends AsyncTask<Void,Void,Boolean> {
         this.is = is;
         this.rv = rv;
     }
+
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -59,19 +54,6 @@ public class RSSParser extends AsyncTask<Void,Void,Boolean> {
         {
             //Bind
             rv.setAdapter(new MyAdapter(c,articles));
-
-
-//            MyAdapter adapter = new MyAdapter(c,articles);
-//            rv.setAdapter(adapter);
-//
-//            adapter.setOnItemClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Toast.makeText(c, "tap", Toast.LENGTH_SHORT).show();
-//                    Log.d("debug", "tap");
-//                }
-//            });
-
         }else {
             Toast.makeText(c,"Unable To Parse", Toast.LENGTH_SHORT).show();
         }
@@ -86,9 +68,7 @@ public class RSSParser extends AsyncTask<Void,Void,Boolean> {
 
             parser.setInput(is, null);
             int event=parser.getEventType();
-
             String value=null;
-
             articles.clear();
             Article article=new Article();
 
@@ -102,13 +82,11 @@ public class RSSParser extends AsyncTask<Void,Void,Boolean> {
                         {
                             article=new Article();
                         }
-
                         break;
 
                     case XmlPullParser.TEXT:
                         value=parser.getText();
                         break;
-
 
                     case XmlPullParser.END_TAG:
 

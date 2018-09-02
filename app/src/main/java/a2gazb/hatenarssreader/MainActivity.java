@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -15,20 +14,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import a2gazb.hatenarssreader.m_RSS.Downloader;
-import a2gazb.hatenarssreader.m_UI.MyAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
     final static String urlAddresses[] = {
-                    "http://b.hatena.ne.jp/hotentry.rss",
-                    "http://b.hatena.ne.jp/hotentry/social.rss",
-                    "http://b.hatena.ne.jp/hotentry/economics.rss",
-                    "http://b.hatena.ne.jp/hotentry/life.rss"
+            "http://b.hatena.ne.jp/hotentry.rss",
+            "http://b.hatena.ne.jp/hotentry/social.rss",
+            "http://b.hatena.ne.jp/hotentry/economics.rss",
+            "http://b.hatena.ne.jp/hotentry/life.rss"
     };
 
     final static String categoryText[] = {
@@ -60,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -69,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -132,19 +130,6 @@ public class MainActivity extends AppCompatActivity {
             final RecyclerView rv= (RecyclerView) rootView.findViewById(R.id.rv);
             rv.setLayoutManager(new LinearLayoutManager(getActivity()));
             new Downloader(getActivity(),urlAddresses[sectionNumber],rv).execute();
-
-
-//            MyAdapter adapter = new MyAdapter(this,articles);
-//            rv.setAdapter(adapter);
-//
-//            adapter.setOnItemClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Toast.makeText(MainActivity.this, String.valueOf(nameList.get(view.getId())), Toast.LENGTH_SHORT).show();
-//                }
-//            });
-
-
             return rootView;
         }
     }
@@ -168,7 +153,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-
             return 4;
         }
     }

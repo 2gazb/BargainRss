@@ -50,7 +50,6 @@ public class Downloader extends AsyncTask<Void,Void,Object> {
             //PARSE
             new RSSParser(c, (InputStream) data,rv).execute();
         }
-
     }
 
     private Object downloadData()

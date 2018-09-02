@@ -17,8 +17,7 @@
             android:layout_height="100dp"
             android:id="@+id/thumImg"
             android:layout_marginTop="43dp"
-            android:layout_marginLeft="13dp"
-        />
+            android:layout_marginLeft="13dp" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -71,9 +70,6 @@
                 android:textStyle="italic"
                 android:id="@+id/dateTxt" />
     </LinearLayout>
-
-
     </LinearLayout>
-
 
 </android.support.v7.widget.CardView>
