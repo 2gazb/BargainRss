@@ -41,8 +41,8 @@ public class RSSParser extends AsyncTask<Void,Void,Boolean> {
     protected void onPreExecute() {
         super.onPreExecute();
         pd=new ProgressDialog(c);
-        pd.setTitle("Parse data");
-        pd.setMessage("Parsing data...Please wait");
+        pd.setTitle("通信中");
+        pd.setMessage("記事を読み込んでいます...");
         pd.show();
     }
 

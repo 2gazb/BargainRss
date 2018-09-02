@@ -60,12 +60,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
         if(position == 0) {
             holder.topTag.setVisibility(View.VISIBLE);
+        } else {
+            holder.topTag.setVisibility(View.GONE);
         }
 
         holder.titleTxt.setText(article.getTitle());
         holder.descTxt.setText(article.getDescription());
         holder.dateTxt.setText(article.getDate());
-        Picasso.with(c).load(article.getImg()).into(holder.thumImg);
+
+        try {
+            Picasso.with(c).load(article.getImg()).into(holder.thumImg);
+        } catch (Exception e) {
+            System.out.println("java.lang.IllegalArgumentException: Path must not be empty.");
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +100,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
 //
 //
-//                Log.d("debug", "tap" + );
+                Log.d("debug", "tap" + position);
 
 
 

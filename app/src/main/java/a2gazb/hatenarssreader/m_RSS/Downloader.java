@@ -29,8 +29,8 @@ public class Downloader extends AsyncTask<Void,Void,Object> {
     protected void onPreExecute() {
         super.onPreExecute();
         pd=new ProgressDialog(c);
-        pd.setTitle("Fetch data");
-        pd.setMessage("Fetching data...Please wait");
+        pd.setTitle("通信中");
+        pd.setMessage("記事を読み込んでいます...");
         pd.show();
     }
 

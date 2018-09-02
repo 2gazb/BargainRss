@@ -15,6 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import a2gazb.hatenarssreader.m_RSS.Downloader;
@@ -27,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
                     "http://b.hatena.ne.jp/hotentry/social.rss",
                     "http://b.hatena.ne.jp/hotentry/economics.rss",
                     "http://b.hatena.ne.jp/hotentry/life.rss"
+    };
+
+    final static String categoryText[] = {
+            "総合",
+            "世の中",
+            "政治と経済",
+            "暮らし"
     };
 
     /**
@@ -117,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
             int sectionNumber = getArguments().getInt(ARG_SECTION_NUMBER);
 
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            TextView category = (TextView) rootView.findViewById(R.id.category);
+            category.setText(categoryText[sectionNumber]);
 
             final RecyclerView rv= (RecyclerView) rootView.findViewById(R.id.rv);
             rv.setLayoutManager(new LinearLayoutManager(getActivity()));
