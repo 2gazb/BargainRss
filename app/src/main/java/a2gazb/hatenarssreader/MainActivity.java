@@ -15,8 +15,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import a2gazb.hatenarssreader.m_RSS.Downloader;
+import a2gazb.hatenarssreader.m_UI.MyAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -119,6 +121,18 @@ public class MainActivity extends AppCompatActivity {
             final RecyclerView rv= (RecyclerView) rootView.findViewById(R.id.rv);
             rv.setLayoutManager(new LinearLayoutManager(getActivity()));
             new Downloader(getActivity(),urlAddresses[sectionNumber],rv).execute();
+
+
+//            MyAdapter adapter = new MyAdapter(this,articles);
+//            rv.setAdapter(adapter);
+//
+//            adapter.setOnItemClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Toast.makeText(MainActivity.this, String.valueOf(nameList.get(view.getId())), Toast.LENGTH_SHORT).show();
+//                }
+//            });
+
 
             return rootView;
         }

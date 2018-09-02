@@ -4,8 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
+import a2gazb.hatenarssreader.MainActivity;
 import a2gazb.hatenarssreader.m_DataObject.Article;
 import a2gazb.hatenarssreader.m_UI.MyAdapter;
 
@@ -56,6 +59,18 @@ public class RSSParser extends AsyncTask<Void,Void,Boolean> {
         {
             //Bind
             rv.setAdapter(new MyAdapter(c,articles));
+
+
+//            MyAdapter adapter = new MyAdapter(c,articles);
+//            rv.setAdapter(adapter);
+//
+//            adapter.setOnItemClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Toast.makeText(c, "tap", Toast.LENGTH_SHORT).show();
+//                    Log.d("debug", "tap");
+//                }
+//            });
 
         }else {
             Toast.makeText(c,"Unable To Parse", Toast.LENGTH_SHORT).show();
@@ -113,6 +128,10 @@ public class RSSParser extends AsyncTask<Void,Void,Boolean> {
                             }else if(name.equals("date"))
                             {
                                article.setDate(value);
+
+                            }else if(name.equals("link"))
+                            {
+                                article.setLink(value);
 
                             }
                             else if(name.equals("content:encoded"))
