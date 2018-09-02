@@ -1,8 +1,5 @@
 package a2gazb.hatenarssreader.m_RSS;
 
-/**
- * Created by Oclemy on 6/11/2016 for ProgrammingWizards Channel and http://www.camposha.com.
- */
 public class ErrorTracker {
 
     public final static String WRONG_URL_FORMAT="Error : Wrong URL Format";

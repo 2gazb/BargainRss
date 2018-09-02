@@ -8,17 +8,22 @@
     android:layout_height="200dp">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:id="@+id/thumImg"
-            android:layout_marginTop="8dp"
-            android:src="@mipmap/ic_launcher"
+            android:layout_marginTop="43dp"
+            android:layout_marginLeft="13dp"
         />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,8 +31,9 @@
             android:text="Title"
             android:id="@+id/titleTxt"
             android:padding="10dp"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
+            android:textSize="16dp"
             android:layout_alignParentLeft="true"
             />
 
@@ -40,7 +46,7 @@
                 android:lines="3"
                 android:id="@+id/descTxt"
                 android:padding="10dp"
-
+                android:textSize="12dp"
                 android:layout_alignParentLeft="true"
                 />
 
@@ -50,10 +56,8 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Date"
                 android:textStyle="italic"
-
                 android:id="@+id/dateTxt" />
-
-
+    </LinearLayout>
 
 
     </LinearLayout>

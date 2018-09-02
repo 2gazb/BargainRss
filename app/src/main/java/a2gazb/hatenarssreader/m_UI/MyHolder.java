@@ -4,12 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import a2gazb.hatenarssreader.R;
 
-/**
- * Created by Oclemy on 6/11/2016 for ProgrammingWizards Channel and http://www.camposha.com.
- */
 public class MyHolder extends RecyclerView.ViewHolder {
 
     TextView titleTxt,descTxt,dateTxt;

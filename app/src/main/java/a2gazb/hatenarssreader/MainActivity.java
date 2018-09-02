@@ -1,7 +1,5 @@
 package a2gazb.hatenarssreader;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,22 +16,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.TextView;
-
 import a2gazb.hatenarssreader.m_RSS.Downloader;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
-
-    final static String urlAddresses[] =
-            {
+    final static String urlAddresses[] = {
                     "http://b.hatena.ne.jp/hotentry.rss",
-                    "http://b.hatena.ne.jp/hotentry/social.rss"
-            };
-
-
+                    "http://b.hatena.ne.jp/hotentry/social.rss",
+                    "http://b.hatena.ne.jp/hotentry/economics.rss",
+                    "http://b.hatena.ne.jp/hotentry/life.rss"
+    };
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -64,15 +56,6 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
     }
 
@@ -133,11 +116,6 @@ public class MainActivity extends AppCompatActivity {
 
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-//            Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
-
-//            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-//            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-
             final RecyclerView rv= (RecyclerView) rootView.findViewById(R.id.rv);
             rv.setLayoutManager(new LinearLayoutManager(getActivity()));
             new Downloader(getActivity(),urlAddresses[sectionNumber],rv).execute();
@@ -160,21 +138,13 @@ public class MainActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position);
+            return PlaceholderFragment.newInstance(position/* + 1*/);
         }
 
         @Override
         public int getCount() {
 
-
-//            総合 : http://b.hatena.ne.jp/hotentry.rss
-//            世の中 : http://b.hatena.ne.jp/hotentry/social.rss
-//            政治と経済 : http://b.hatena.ne.jp/hotentry/economics.rss
-//            暮らし : http://b.hatena.ne.jp/hotentry/life.rss
-
-
-            // Show 3 total pages.
-            return 3;
+            return 4;
         }
     }
 }

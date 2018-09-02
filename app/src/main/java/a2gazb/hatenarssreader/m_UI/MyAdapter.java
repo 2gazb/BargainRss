@@ -1,21 +1,15 @@
 package a2gazb.hatenarssreader.m_UI;
 
 import android.content.Context;
-import android.graphics.drawable.Icon;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-//
-//import com.tutorials.hp.recyclerviewrssmulti_items.R;
+import com.squareup.picasso.Picasso;
 import a2gazb.hatenarssreader.R;
 import a2gazb.hatenarssreader.m_DataObject.Article;
-
 import java.util.ArrayList;
 
-/**
- * Created by Oclemy on 6/11/2016 for ProgrammingWizards Channel and http://www.camposha.com.
- */
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
     Context c;
@@ -40,15 +34,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
         holder.titleTxt.setText(article.getTitle());
         holder.descTxt.setText(article.getDescription());
         holder.dateTxt.setText(article.getDate());
-        holder.thumImg.setImageIcon(Icon.createWithContentUri(article.getImg()));
-
-
-
-
+        Picasso.with(c).load(article.getImg()).into(holder.thumImg);
     }
 
     @Override
     public int getItemCount() {
         return articles.size();
     }
+
 }

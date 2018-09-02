@@ -11,9 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 
-/**
- * Created by Oclemy on 6/11/2016 for ProgrammingWizards Channel and http://www.camposha.com.
- */
 public class Downloader extends AsyncTask<Void,Void,Object> {
 
     Context c;
@@ -77,8 +74,6 @@ public class Downloader extends AsyncTask<Void,Void,Object> {
 
             return ErrorTracker.RESPONSE_EROR+con.getResponseMessage();
 
-
-
         } catch (IOException e) {
             e.printStackTrace();
             return ErrorTracker.IO_EROR;
@@ -86,18 +81,3 @@ public class Downloader extends AsyncTask<Void,Void,Object> {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,12 +1,8 @@
 package a2gazb.hatenarssreader.m_DataObject;
 
-/**
- * Created by Oclemy on 6/11/2016 for ProgrammingWizards Channel and http://www.camposha.com.
- */
 public class Article {
 
     String title,description,date,link,img;
-
 
     public String getTitle() {
         return title;
@@ -44,7 +40,5 @@ public class Article {
         return img;
     }
 
-    public void setImg(String img) {
-        this.img = img;
-    }
+    public void setImg(String img) { this.img = img; }
 }

@@ -9,6 +9,9 @@ import android.widget.Toast;
 import a2gazb.hatenarssreader.m_DataObject.Article;
 import a2gazb.hatenarssreader.m_UI.MyAdapter;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -17,11 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-/**
- * Created by Oclemy on 6/11/2016 for ProgrammingWizards Channel and http://www.camposha.com.
- */
 public class RSSParser extends AsyncTask<Void,Void,Boolean> {
-
 
     Context c;
     InputStream is;
@@ -115,25 +114,19 @@ public class RSSParser extends AsyncTask<Void,Void,Boolean> {
                             {
                                article.setDate(value);
 
-
                             }
-                            else if(name.equals("link"))
+                            else if(name.equals("content:encoded"))
                             {
-                                article.setImg(value);
-
-
+                                Document doc = Jsoup.parse(value);
+                                Elements image = doc.select("img[class$=entry-image]");
+                                article.setImg(image.attr("src"));
                             }
-
-
-
-
                         if(name.equals("item"))
                         {
                             articles.add(article);
                         }
                         break;
                 }
-
 
                 event=parser.next();
 
@@ -149,19 +142,4 @@ public class RSSParser extends AsyncTask<Void,Void,Boolean> {
         }
         return false;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

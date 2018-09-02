@@ -5,9 +5,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by Oclemy on 6/11/2016 for ProgrammingWizards Channel and http://www.camposha.com.
- */
 public class Connector {
 
     public static Object connect(String urlAddress)
@@ -33,5 +30,4 @@ public class Connector {
             return ErrorTracker.CONNECTION_ERROR;
         }
     }
-
 }
